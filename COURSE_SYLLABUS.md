@@ -26,3 +26,10 @@
 **제출:** 연구질문 → 수식·모형 → 결과표/그림 → 해석 → 타당성 검증 → 제한점. 점수표는 `assignments/Evaluation_Rubric.md`.
 
 **후속 과정 연계:** 고급 인과추론(식별·이질적 효과), 의사결정과 경영과학(예측 이후 최적 행동 선택). 본 강의에서는 입문과 교량에 집중.
+
+## 연구의 전체 프로세스(End-to-End Research Process)
+
+본 과정은 **Research Foundation → Research Design → Data & Modeling → Evidence & Validation → Research Contribution**의 5단계 연구 체계를 따릅니다. 학습자는 챕터별 실습에서 각 단계의 역할을 이해하고 마지막 Chapter 8에서 연구질문과 증거를 통합합니다.
+
+- **[12단계 시계열 연구 프로세스 및 품질 게이트](docs/Research_Workflow.md)**
+- **[도메인별 자유선택형 Colab 실습 가이드](TimeSeriesResearchMethods_Labs.md)**

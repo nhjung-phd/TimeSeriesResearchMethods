@@ -2,9 +2,15 @@
 > **Doctoral Research Labs · 자유 선택형(Free-Choice)**  
 > *Research Question → Theory → Formula → Method → Colab → Interpretation → Validation → Research Assignment*
 
-[🏠 저장소 첫 화면](README.md) · [📘 강의계획](COURSE_SYLLABUS.md) · [🚀 시작하기](GETTING_STARTED.md) · [🗂 데이터 출처](resources/Data_Source_Catalog.md) · [📝 과제 제출](assignments/Student_Submission_Guide.md)
+[🏠 저장소 첫 화면](README.md) · [🔬 전체 연구 프로세스](docs/Research_Workflow.md) · [📘 강의계획](COURSE_SYLLABUS.md) · [🚀 시작하기](GETTING_STARTED.md) · [🗂 데이터 출처](resources/Data_Source_Catalog.md) · [📝 과제 제출](assignments/Student_Submission_Guide.md)
 
 ---
+
+## 실습 전에: 연구 프로세스에서 내 위치 확인
+
+모든 실습은 **연구질문 → 개념·수식 → 방법론 → 데이터·Colab → 결과 → 해석 → 검증 → 제출**을 따릅니다. 단, 논문 전체의 연구과정에는 이보다 앞선 **현상 관찰·선행연구·Research Gap**과 이후의 **연구 기여·논문화**가 포함됩니다.
+
+**[📖 시계열 연구의 5 Phases · 12 Steps 전체 보기](docs/Research_Workflow.md)**
 
 ## 1. 이 가이드 사용법
 
