@@ -6,6 +6,9 @@
 
 기존 석사과정 [`TimeSeriesAnalysis`](https://github.com/nhjung-phd/TimeSeriesAnalysis)의 `lecture_notes / notebooks / practice / prompts / docs / examples` 구조와 Colab 안내 방식을 참고해 박사과정용 연구설계와 검증 모듈을 추가했습니다. 이 저장소는 새로운 독립 프로젝트입니다.
 
+> 📚 **[전체 실습 가이드 — 8 Chapters × 6 Domains / Google Colab 바로 실행](TimeSeriesResearchMethods_Labs.md)**  
+> 각 챕터에서 도메인을 자유롭게 선택하고, 실행 가능 상태·데이터 수집·연구설계·검증·제출까지 한 페이지에서 확인하세요.
+
 ## Start here
 
 1. [강의계획](COURSE_SYLLABUS.md) → [Colab 시작하기](GETTING_STARTED.md)
