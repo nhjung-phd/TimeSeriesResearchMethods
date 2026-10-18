@@ -1,0 +1,14 @@
+.DS_Store
+.ipynb_checkpoints/
+__pycache__/
+.pytest_cache/
+.env
+.env.*
+*.key
+*.pem
+*.secret
+.data_cache/
+data/raw/
+data/private/
+data/downloads/
+*.zip
