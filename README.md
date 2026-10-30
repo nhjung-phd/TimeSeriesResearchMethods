@@ -12,7 +12,7 @@
 ## Start here
 
 1. [강의계획](COURSE_SYLLABUS.md) → [Colab 시작하기](GETTING_STARTED.md)
-2. [8개 챕터 실습 목록](docs/Domain_Lab_Catalog.md)에서 Chapter 선택
+2. [8개 챕터 실습 목록](TimeSeriesResearchMethods_Labs.md)에서 Chapter 선택
 3. 6개 도메인(금융·투자, 부동산, 제조·품질, 공공정책, 에너지·환경, 경영·마케팅) 중 자유롭게 선택
 4. Colab 실행 → 결과 해석 → 검증 → [연구과제](assignments/Student_Submission_Guide.md) 제출
 

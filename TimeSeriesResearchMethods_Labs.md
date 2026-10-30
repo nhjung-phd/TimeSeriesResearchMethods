@@ -37,16 +37,16 @@
 
 ## 3. 6개 도메인 데이터 수집 입문
 
-각 장의 실습은 **독립 실행**을 지향합니다. `data_sources/`는 데이터 탐색을 위한 입문 노트북이며, 초기 공개본은 합성 예제 중심입니다. 모든 노트북에서 실제 공공 API가 연결된 것은 아닙니다.
+각 장의 실습은 **독립 실행**을 지향합니다. `data_sources/`는 데이터 탐색을 위한 입문 노트북입니다. 각 노트북은 무료 공개 출처를 `try/except`로 시도하고, 연결이 실패하면 **합성자료로 대체하며 `DATA_KIND`로 구분**합니다. 출처의 접근 유형·라이선스·검증 상태(A/B/C)는 [출처 카탈로그](resources/Data_Source_Catalog.md)에 있고, 노트북의 온라인 로더는 Colab 실행으로 확인하기 전에는 "동작 보장"이 아닙니다.
 
-| 도메인 | 데이터 수집 입문 | 데이터 관련 안내 |
-|---|---|---|
-| 금융·투자 | [📓 Notebook](data_sources/01_Finance_Data.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/data_sources/01_Finance_Data.ipynb) | [출처 카탈로그](resources/Data_Source_Catalog.md) |
-| 부동산 | [📓 Notebook](data_sources/02_RealEstate_Data.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/data_sources/02_RealEstate_Data.ipynb) | [출처 카탈로그](resources/Data_Source_Catalog.md) |
-| 제조·품질 | [📓 Notebook](data_sources/03_Manufacturing_Data.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/data_sources/03_Manufacturing_Data.ipynb) | [출처 카탈로그](resources/Data_Source_Catalog.md) |
-| 공공정책 | [📓 Notebook](data_sources/04_PublicPolicy_Data.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/data_sources/04_PublicPolicy_Data.ipynb) | [출처 카탈로그](resources/Data_Source_Catalog.md) |
-| 에너지·환경 | [📓 Notebook](data_sources/05_EnergyEnvironment_Data.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/data_sources/05_EnergyEnvironment_Data.ipynb) | [출처 카탈로그](resources/Data_Source_Catalog.md) |
-| 경영·마케팅 | [📓 Notebook](data_sources/06_BusinessMarketing_Data.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/data_sources/06_BusinessMarketing_Data.ipynb) | [출처 카탈로그](resources/Data_Source_Catalog.md) |
+| 도메인 | 데이터 수집 입문 | 기본 무료 출처 (검증 상태) | 데이터 관련 안내 |
+|---|---|---|---|
+| 금융·투자 | [📓 Notebook](data_sources/01_Finance_Data.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/data_sources/01_Finance_Data.ipynb) | FRED 금리 시계열 (B) | [출처 카탈로그](resources/Data_Source_Catalog.md) |
+| 부동산 | [📓 Notebook](data_sources/02_RealEstate_Data.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/data_sources/02_RealEstate_Data.ipynb) | FHFA HPI (A/B) | [출처 카탈로그](resources/Data_Source_Catalog.md) |
+| 제조·품질 | [📓 Notebook](data_sources/03_Manufacturing_Data.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/data_sources/03_Manufacturing_Data.ipynb) | 무료 시계열 부족: 합성 + SECOM 선택 (C) | [출처 카탈로그](resources/Data_Source_Catalog.md) |
+| 공공정책 | [📓 Notebook](data_sources/04_PublicPolicy_Data.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/data_sources/04_PublicPolicy_Data.ipynb) | California Prop 99 (A/B) | [출처 카탈로그](resources/Data_Source_Catalog.md) |
+| 에너지·환경 | [📓 Notebook](data_sources/05_EnergyEnvironment_Data.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/data_sources/05_EnergyEnvironment_Data.ipynb) | NOAA CO₂, Open-Meteo (A) | [출처 카탈로그](resources/Data_Source_Catalog.md) |
+| 경영·마케팅 | [📓 Notebook](data_sources/06_BusinessMarketing_Data.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/data_sources/06_BusinessMarketing_Data.ipynb) | Wikimedia 조회수 (A) | [출처 카탈로그](resources/Data_Source_Catalog.md) |
 
 ## 4. Chapter별 자유 선택 실습
 
@@ -245,4 +245,4 @@
 - 실습 코드와 결과는 교육·연구용이며 투자 자문이나 정책효과의 확정적 증거가 아닙니다.
 
 ---
-**Next Steps:** [인과추론 심화](docs/Next_Steps/Causal_Inference_Path.md) · [의사결정 연구](docs/Next_Steps/Decision_Science_Path.md) · [석사 시계열 분석 저장소](https://github.com/nhjung-phd/TimeSeriesAnalysis)
+**Next Steps:** [석사 시계열 분석 저장소](https://github.com/nhjung-phd/TimeSeriesAnalysis)

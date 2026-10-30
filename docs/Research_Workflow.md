@@ -162,8 +162,7 @@ a_t^* = rg\min_{a\in\mathcal A} E[L(a,Y_{t+h})\mid\mathcal I_t]
 
 예측값을 입력값으로 사용할 때 **어떤 목적함수·비용·제약조건 아래에서 행동을 선택할 것인가**를 최적화·정책선택·강화학습 등으로 확장합니다.
 
-- [후속 인과추론 학습경로](Next_Steps/Causal_Inference_Path.md)
-- [후속 의사결정과학 학습경로](Next_Steps/Decision_Science_Path.md)
+- [무료 데이터 출처 카탈로그](../resources/Data_Source_Catalog.md)
 
 ---
 
