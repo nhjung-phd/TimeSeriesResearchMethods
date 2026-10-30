@@ -1,6 +1,7 @@
 from .cells import md, code
 from .common import SETUP
 from .data_cells import LOADERS
+from .mfg_real import AI4I_CODE
 
 WHICH = {"Finance": "", "RealEstate": "price", "Manufacturing": "sensor", "PublicPolicy": "traffic",
          "EnergyEnvironment": "demand", "BusinessMarketing": ""}
@@ -273,6 +274,33 @@ imp = pd.Series(permutation_importance(clfs[best_name], Xte, yte, n_repeats=3, r
                 scoring="average_precision").importances_mean, index=Xte.columns).sort_values(ascending=False)
 show(imp.head(6).to_frame("PR-AUC 감소량"))
 '''
+MFG_REAL_MD = r'''
+## 4. 실데이터 점검 (표 형태): UCI AI4I 2020
+위 센서는 시계열이지만 아래 AI4I는 **행이 독립인 표**이며 합성 생성 자료다(실제 설비 아님). 목적은 (i) 불균형에서 기준선과 PR-AUC 보기, (ii) 고장 유형 열을 특성에 넣을 때의 **누수**를 눈으로 확인하는 것이다.
+'''
+
+MFG_REAL = AI4I_CODE + r'''
+ai, KIND_AI4I = load_ai4i(live=USE_LIVE_DATA)
+print("KIND_AI4I:", KIND_AI4I, "|", ai.shape, "| 고장 비율:", round(float(ai["machine_failure"].mean()), 4))
+from sklearn.model_selection import StratifiedKFold, cross_val_predict
+from sklearn.dummy import DummyClassifier
+from sklearn.ensemble import HistGradientBoostingClassifier
+base = ["air_temperature", "process_temperature", "rotational_speed", "torque", "tool_wear"]
+Xa = pd.get_dummies(ai[base + ["type"]], columns=["type"], dtype=float); ya = ai["machine_failure"].to_numpy()
+modes = [c for c in AI4I_MODES if c in ai.columns]
+cv = StratifiedKFold(5, shuffle=True, random_state=SEED)
+def cv_scores(X, model):
+    p = cross_val_predict(model, X, ya, cv=cv, method="predict_proba")[:, 1]
+    return round(float(average_precision_score(ya, p)), 3), round(float(roc_auc_score(ya, p)), 3)
+res = {"항상 정상(기준선)": cv_scores(Xa, DummyClassifier(strategy="prior")),
+       "로지스틱(5변수)": cv_scores(Xa, make_pipeline(StandardScaler(), LogisticRegression(max_iter=1000, class_weight="balanced"))),
+       "HistGB(5변수)": cv_scores(Xa, HistGradientBoostingClassifier(random_state=SEED))}
+if modes:
+    res["HistGB + 고장유형 열(누수)"] = cv_scores(pd.concat([Xa, ai[modes]], axis=1), HistGradientBoostingClassifier(random_state=SEED))
+print(pd.DataFrame(res, index=["PR-AUC", "ROC-AUC"]).T.to_string())
+print("기준선 PR-AUC는 고장 비율과 같다. 누수 행의 점수가 비정상적으로 높으면 평가가 아니라 정의(라벨 구성)를 학습한 것이다.")
+'''
+
 MFG_NOTE = r'''
 **읽는 법:** 합성 센서에는 고장 직전 12시간의 전조가 **심어져 있으므로** 높은 성능은 방법이 작동한다는 점검일 뿐이며 현장 성능이 아니다. 실제 설비 자료로는 (i) 고장 라벨의 시점 정의, (ii) 이벤트 수, (iii) 경보 후 조치 비용이 평가를 좌우한다. 평가 누수는 Ch.7에서 다룬다.
 '''
@@ -297,5 +325,5 @@ def build(domain, title, question):
             md("## 2. 특성 구성·모형·평가"), code(CORE), code(REG_REPORT)]
     body = {"Finance": [code(FIN)], "RealEstate": [code(RE)], "PublicPolicy": [code(TRAFFIC)],
             "BusinessMarketing": [code(SALES)], "EnergyEnvironment": [code(ENERGY_FEATS), md("## 3. LSTM"), code(LSTM)],
-            "Manufacturing": [code(MFG), code(MFG2)]}[domain]
+            "Manufacturing": [code(MFG), code(MFG2), md(MFG_REAL_MD), code(MFG_REAL)]}[domain]
     return head + body + [md(NOTES[domain]), md(INTERP)]

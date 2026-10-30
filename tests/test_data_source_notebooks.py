@@ -134,3 +134,62 @@ def test_gold_csv_in_repo_is_used():
         os.chdir(cwd)
     g = ns["gold"]
     assert ns["KIND_GOLD"].startswith("REAL(file)") and len(g) == 2510 and str(g.index[0].date()) == "2016-02-05"
+
+
+# ---- 제조 소형 공개 자료 로더 (모의 입력) ----
+def test_mfg_parsers():
+    import numpy as np, pandas as pd, pytest
+    ns = _parsers("03_Manufacturing")
+    # AI4I: 열 이름 정규화, 고장유형 열 보존, 짧은 표 거부
+    ai = ns["synthetic_ai4i"]()
+    raw = ai.rename(columns={"air_temperature": "Air temperature [K]", "machine_failure": "Machine failure", "tool_wear": "Tool wear [min]",
+                             "process_temperature": "Process temperature [K]", "rotational_speed": "Rotational speed [rpm]",
+                             "torque": "Torque [Nm]", "type": "Type", "twf": "TWF", "hdf": "HDF", "pwf": "PWF", "osf": "OSF", "rnf": "RNF"})
+    out = ns["parse_ai4i"](raw)
+    assert "machine_failure" in out and "hdf" in out and 0.01 < out["machine_failure"].mean() < 0.12
+    with pytest.raises(ValueError):
+        ns["parse_ai4i"](raw.head(100))
+    # C-MAPSS: 26열, RUL 계산
+    rows = []
+    for u in (1, 2):
+        for c in range(1, 4):
+            rows.append(" ".join([str(u), str(c)] + ["0.1"] * 24))
+    with pytest.raises(ValueError):                       # 엔진 수 부족
+        ns["parse_cmapss_train"]("\n".join(rows) + "\n")
+    cm = ns["synthetic_cmapss"]()
+    assert cm["unit"].nunique() == 100 and (cm.groupby("unit")["rul"].min() == 0).all()
+    txt = "\n".join(" ".join(map(str, [r.unit, r.cycle] + [r[f"op{i}"] for i in (1, 2, 3)] + [r[f"s{i}"] for i in range(1, 22)]))
+                    for _, r in cm.head(500).iterrows())
+    # 500행에는 엔진이 적어 거부되는 것이 정상, 전체는 통과해야 한다
+    with pytest.raises(ValueError):
+        ns["parse_cmapss_train"](txt)
+    full = "\n".join(" ".join(map(str, row)) for row in cm.drop(columns="rul").itertuples(index=False))
+    assert ns["parse_cmapss_train"](full).shape[1] == 27
+    # SECOM: 라벨/타임스탬프
+    data = "1.0 NaN 3.0\n4.0 5.0 NaN\n"
+    labs = "-1 19/07/2008 11:55:00\n1 19/07/2008 12:32:00\n"
+    X, y = ns["parse_secom"](data, labs)
+    assert X.shape == (2, 3) and list(y) == [0, 1] and X.index[0].month == 7 and X.isna().sum().sum() == 2
+    with pytest.raises(ValueError):
+        ns["parse_secom"](data, "-1 a b\n")
+    # Steel: 결함 지시열 -> 클래스
+    cols = {f"x{i}": np.random.rand(1600) for i in range(27)}
+    st = pd.DataFrame(cols)
+    for k, c in enumerate(ns["STEEL_CLASSES"]):
+        st[c] = (np.arange(1600) % 7 == k).astype(int)
+    Xs, ys = ns["parse_steel"](st)
+    assert Xs.shape == (1600, 27) and ys.nunique() == 7
+
+
+def test_cwru_parser_and_bearing_features():
+    import io, numpy as np
+    from scipy.io import savemat
+    ns = _parsers("03_Manufacturing")
+    buf = io.BytesIO(); savemat(buf, {"X097_DE_time": np.random.randn(1000, 1), "X097RPM": np.array([[1797]])})
+    assert ns["parse_cwru_mat"](buf.getvalue()).shape == (1000,)
+    import pytest
+    buf2 = io.BytesIO(); savemat(buf2, {"foo": np.zeros((3, 1))})
+    with pytest.raises(ValueError):
+        ns["parse_cwru_mat"](buf2.getvalue())
+    f0 = ns["bearing_features"](ns["synthetic_bearing"](fault_hz=0.0)); f1 = ns["bearing_features"](ns["synthetic_bearing"](fault_hz=105.0))
+    assert f1["kurtosis"] > f0["kurtosis"] + 1       # 충격이 있으면 첨도가 커진다 (합성 확인)

@@ -112,3 +112,19 @@
 | Box–Jenkins 국제선 항공 승객 1949–1960 | 06 Business 추가 D (내장) | A | 네트워크 불필요, 144행 |
 
 원칙: 모든 로더는 `온라인 → 값 범위 검증 → 합성 대체`이며 `KIND_*`/`DATA_KIND`로 실제·합성을 표시한다. API 키는 저장하지 않는다.
+
+### 9-1. 제조 도메인 추가 (작은 공개 자료)
+
+편입 위치: `data_sources/03_Manufacturing_Data.ipynb` "추가" 셀, Ch3 제조 노트북 4절(AI4I). 링크·용량은 각 UCI/NASA 페이지에서 확인했으나 **실제 내려받기는 이 환경에서 검증하지 못했다**(Colab 실행 필요).
+
+| 자료 | 용량 | 라이선스 | 등급 | 시계열 여부 |
+|---|---|---|---|---|
+| UCI AI4I 2020 (id 601) | 약 0.5MB | CC BY 4.0 | A | 아님(합성 생성 표) |
+| UCI Steel Plates Faults (id 198) | 약 0.1MB | CC BY 4.0 | A | 아님(표) |
+| UCI SECOM (id 179) | 약 1.9MB | CC BY 4.0 | A (타임스탬프 위치는 확인 필요) | 시간순서 가능 |
+| NASA C-MAPSS FD001 | 미확인 | 표기 없음 | B | 사이클 단위(달력 아님), 시뮬레이션 |
+| CWRU 베어링 | 파일당 수 MB 추정 | 이용약관 표기 없음 | B | 고주파 신호. `.mat` URL은 사이트에서 직접 복사 |
+| NASA/IMS, PRONOSTIA, Tennessee Eastman | 3~6GB 이상 또는 수동 | 각각 다름 | 대용량이라 코드 편입 보류 | 심화 과제용 |
+
+주의: AI4I의 고장 유형 열(TWF, HDF, PWF, OSF, RNF)은 `Machine failure`를 거의 결정하므로 특성으로 쓰면 누수다(Ch3 4절에서 대조 실험).
+
