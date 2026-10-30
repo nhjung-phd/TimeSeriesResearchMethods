@@ -16,11 +16,11 @@
 
 1. **Chapter 선택:** 강의 주제 또는 관심 있는 분석방법을 고릅니다.
 2. **도메인 자유 선택:** 금융·투자, 부동산, 제조·품질, 공공정책, 에너지·환경, 경영·마케팅 중 해당 장에서 하나를 선택합니다. 다음 장에서 다른 도메인을 골라도 됩니다.
-3. **실행 상태 확인:** 아래 상태가 `✅ 예제`인 노트북은 구현 코드가 포함되어 있고, `📝 템플릿`은 연구질문·설계 초안이므로 분석 코드가 완성되지 않았습니다.
+3. **실행 상태 확인:** 48개 노트북은 모두 위에서 아래로 실행하면 끝나도록 구현되어 있습니다. 온라인 공개자료를 먼저 시도하고 실패하면 **합성자료로 자동 대체**하며, 첫 결과에 `DATA_KIND`(REAL/SYNTHETIC)가 출력됩니다.
 4. **Colab 실행:** `▶ Colab`을 눌러 개인 사본에서 실행합니다. 최초 실행 때 환경·데이터·라이선스를 확인하세요.
 5. **제출:** 연구질문, 방법·수식, 실행 결과, 결과 해석, 검증, 한계를 함께 제출합니다.
 
-> ⚠️ **구현 상태(초기 공개본 기준):** 48개 도메인 과제 가운데 금융 Chapter 1은 코드 예제가 들어 있고, **나머지 47개는 미완성 연구실습 템플릿**입니다. 샘플 코드가 있다고 해서 모든 Google Colab 런타임에서 즉시 성공한다는 의미는 아닙니다. 개발 진행에 따라 이 표기를 갱신해야 합니다.
+> ⚠️ **구현 상태:** 48개 모두 코드가 있고, 개발 환경에서 **합성자료 경로를 끝까지 실행**해 점검했습니다(`tools/run_notebooks.py`). 다음은 **Colab에서 직접 확인이 필요한 부분**입니다: (1) 온라인 로더(FRED·FHFA·NYC 311·Open-Meteo·Online Retail II 등), (2) `statsmodels`·`yfinance`·`torch`·`xgboost`·`chronos-forecasting` 실제 호출. Ch.4의 사전학습 모델은 선택 기능이며 없으면 기준선만 실행됩니다. 합성자료 결과는 **방법 점검**이며 실제 현상의 증거가 아닙니다.
 
 ## 2. 한눈에 보는 8개 챕터
 
@@ -60,12 +60,12 @@
 
 | 분야 | 연구실습 과제 | 상태 | 실습 바로가기 |
 |---|---|---|---|
-| 금융·투자 | ETF 수익률 정상성·변동성 | ✅ 코드 예제 | [📓 Notebook](notebooks/01_TimeSeries_Foundations/Finance.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/01_TimeSeries_Foundations/Finance.ipynb) |
-| 부동산 | 주택가격 추세·계절성 | 📝 설계 템플릿 | [📓 Notebook](notebooks/01_TimeSeries_Foundations/RealEstate.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/01_TimeSeries_Foundations/RealEstate.ipynb) |
-| 제조·품질 | 센서 신호 시간 패턴 | 📝 설계 템플릿 | [📓 Notebook](notebooks/01_TimeSeries_Foundations/Manufacturing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/01_TimeSeries_Foundations/Manufacturing.ipynb) |
-| 공공정책 | 민원·교통 시계열 구조 | 📝 설계 템플릿 | [📓 Notebook](notebooks/01_TimeSeries_Foundations/PublicPolicy.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/01_TimeSeries_Foundations/PublicPolicy.ipynb) |
-| 에너지·환경 | 기온·대기질 계절성 | 📝 설계 템플릿 | [📓 Notebook](notebooks/01_TimeSeries_Foundations/EnergyEnvironment.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/01_TimeSeries_Foundations/EnergyEnvironment.ipynb) |
-| 경영·마케팅 | 매출·거래량 계절성 | 📝 설계 템플릿 | [📓 Notebook](notebooks/01_TimeSeries_Foundations/BusinessMarketing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/01_TimeSeries_Foundations/BusinessMarketing.ipynb) |
+| 금융·투자 | ETF 수익률 정상성·변동성 | ✅ 실행 예제 | [📓 Notebook](notebooks/01_TimeSeries_Foundations/Finance.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/01_TimeSeries_Foundations/Finance.ipynb) |
+| 부동산 | 주택가격 추세·계절성 | ✅ 실행 예제 | [📓 Notebook](notebooks/01_TimeSeries_Foundations/RealEstate.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/01_TimeSeries_Foundations/RealEstate.ipynb) |
+| 제조·품질 | 센서 신호 시간 패턴 | ✅ 실행 예제 | [📓 Notebook](notebooks/01_TimeSeries_Foundations/Manufacturing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/01_TimeSeries_Foundations/Manufacturing.ipynb) |
+| 공공정책 | 민원·교통 시계열 구조 | ✅ 실행 예제 | [📓 Notebook](notebooks/01_TimeSeries_Foundations/PublicPolicy.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/01_TimeSeries_Foundations/PublicPolicy.ipynb) |
+| 에너지·환경 | 기온·대기질 계절성 | ✅ 실행 예제 | [📓 Notebook](notebooks/01_TimeSeries_Foundations/EnergyEnvironment.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/01_TimeSeries_Foundations/EnergyEnvironment.ipynb) |
+| 경영·마케팅 | 매출·거래량 계절성 | ✅ 실행 예제 | [📓 Notebook](notebooks/01_TimeSeries_Foundations/BusinessMarketing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/01_TimeSeries_Foundations/BusinessMarketing.ipynb) |
 
 [↑ 챕터 목록으로](#2-한눈에-보는-8개-챕터)
 
@@ -79,12 +79,12 @@
 
 | 분야 | 연구실습 과제 | 상태 | 실습 바로가기 |
 |---|---|---|---|
-| 금융·투자 | 수익률 ARIMA·변동성 GARCH | 📝 설계 템플릿 | [📓 Notebook](notebooks/02_Statistical_Forecasting/Finance.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/02_Statistical_Forecasting/Finance.ipynb) |
-| 부동산 | 거래량 SARIMA | 📝 설계 템플릿 | [📓 Notebook](notebooks/02_Statistical_Forecasting/RealEstate.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/02_Statistical_Forecasting/RealEstate.ipynb) |
-| 제조·품질 | 제조 수요 SARIMA | 📝 설계 템플릿 | [📓 Notebook](notebooks/02_Statistical_Forecasting/Manufacturing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/02_Statistical_Forecasting/Manufacturing.ipynb) |
-| 공공정책 | 민원 건수 통계예측 | 📝 설계 템플릿 | [📓 Notebook](notebooks/02_Statistical_Forecasting/PublicPolicy.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/02_Statistical_Forecasting/PublicPolicy.ipynb) |
-| 에너지·환경 | 전력수요 SARIMA | 📝 설계 템플릿 | [📓 Notebook](notebooks/02_Statistical_Forecasting/EnergyEnvironment.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/02_Statistical_Forecasting/EnergyEnvironment.ipynb) |
-| 경영·마케팅 | 일별 매출 SARIMA | 📝 설계 템플릿 | [📓 Notebook](notebooks/02_Statistical_Forecasting/BusinessMarketing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/02_Statistical_Forecasting/BusinessMarketing.ipynb) |
+| 금융·투자 | 수익률 ARIMA·변동성 GARCH | ✅ 실행 예제 | [📓 Notebook](notebooks/02_Statistical_Forecasting/Finance.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/02_Statistical_Forecasting/Finance.ipynb) |
+| 부동산 | 거래량 SARIMA | ✅ 실행 예제 | [📓 Notebook](notebooks/02_Statistical_Forecasting/RealEstate.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/02_Statistical_Forecasting/RealEstate.ipynb) |
+| 제조·품질 | 제조 수요 SARIMA | ✅ 실행 예제 | [📓 Notebook](notebooks/02_Statistical_Forecasting/Manufacturing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/02_Statistical_Forecasting/Manufacturing.ipynb) |
+| 공공정책 | 민원 건수 통계예측 | ✅ 실행 예제 | [📓 Notebook](notebooks/02_Statistical_Forecasting/PublicPolicy.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/02_Statistical_Forecasting/PublicPolicy.ipynb) |
+| 에너지·환경 | 전력수요 SARIMA | ✅ 실행 예제 | [📓 Notebook](notebooks/02_Statistical_Forecasting/EnergyEnvironment.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/02_Statistical_Forecasting/EnergyEnvironment.ipynb) |
+| 경영·마케팅 | 일별 매출 SARIMA | ✅ 실행 예제 | [📓 Notebook](notebooks/02_Statistical_Forecasting/BusinessMarketing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/02_Statistical_Forecasting/BusinessMarketing.ipynb) |
 
 [↑ 챕터 목록으로](#2-한눈에-보는-8개-챕터)
 
@@ -98,12 +98,12 @@
 
 | 분야 | 연구실습 과제 | 상태 | 실습 바로가기 |
 |---|---|---|---|
-| 금융·투자 | 금융 수익률 RF·XGBoost | 📝 설계 템플릿 | [📓 Notebook](notebooks/03_Machine_Deep_Learning/Finance.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/03_Machine_Deep_Learning/Finance.ipynb) |
-| 부동산 | 주택가격 ML 예측 | 📝 설계 템플릿 | [📓 Notebook](notebooks/03_Machine_Deep_Learning/RealEstate.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/03_Machine_Deep_Learning/RealEstate.ipynb) |
-| 제조·품질 | 설비 이상·품질 예측 | 📝 설계 템플릿 | [📓 Notebook](notebooks/03_Machine_Deep_Learning/Manufacturing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/03_Machine_Deep_Learning/Manufacturing.ipynb) |
-| 공공정책 | 교통량 XGBoost | 📝 설계 템플릿 | [📓 Notebook](notebooks/03_Machine_Deep_Learning/PublicPolicy.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/03_Machine_Deep_Learning/PublicPolicy.ipynb) |
-| 에너지·환경 | 전력수요 LSTM | 📝 설계 템플릿 | [📓 Notebook](notebooks/03_Machine_Deep_Learning/EnergyEnvironment.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/03_Machine_Deep_Learning/EnergyEnvironment.ipynb) |
-| 경영·마케팅 | 판매량 RF·XGBoost | 📝 설계 템플릿 | [📓 Notebook](notebooks/03_Machine_Deep_Learning/BusinessMarketing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/03_Machine_Deep_Learning/BusinessMarketing.ipynb) |
+| 금융·투자 | 금융 수익률 RF·XGBoost | ✅ 실행 예제 | [📓 Notebook](notebooks/03_Machine_Deep_Learning/Finance.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/03_Machine_Deep_Learning/Finance.ipynb) |
+| 부동산 | 주택가격 ML 예측 | ✅ 실행 예제 | [📓 Notebook](notebooks/03_Machine_Deep_Learning/RealEstate.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/03_Machine_Deep_Learning/RealEstate.ipynb) |
+| 제조·품질 | 설비 이상·품질 예측 | ✅ 실행 예제 | [📓 Notebook](notebooks/03_Machine_Deep_Learning/Manufacturing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/03_Machine_Deep_Learning/Manufacturing.ipynb) |
+| 공공정책 | 교통량 XGBoost | ✅ 실행 예제 | [📓 Notebook](notebooks/03_Machine_Deep_Learning/PublicPolicy.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/03_Machine_Deep_Learning/PublicPolicy.ipynb) |
+| 에너지·환경 | 전력수요 LSTM | ✅ 실행 예제 | [📓 Notebook](notebooks/03_Machine_Deep_Learning/EnergyEnvironment.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/03_Machine_Deep_Learning/EnergyEnvironment.ipynb) |
+| 경영·마케팅 | 판매량 RF·XGBoost | ✅ 실행 예제 | [📓 Notebook](notebooks/03_Machine_Deep_Learning/BusinessMarketing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/03_Machine_Deep_Learning/BusinessMarketing.ipynb) |
 
 [↑ 챕터 목록으로](#2-한눈에-보는-8개-챕터)
 
@@ -117,12 +117,12 @@
 
 | 분야 | 연구실습 과제 | 상태 | 실습 바로가기 |
 |---|---|---|---|
-| 금융·투자 | ETF Zero-shot 예측 | 📝 설계 템플릿 | [📓 Notebook](notebooks/04_Foundation_Models/Finance.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/04_Foundation_Models/Finance.ipynb) |
-| 부동산 | 가격지수 Zero-shot | 📝 설계 템플릿 | [📓 Notebook](notebooks/04_Foundation_Models/RealEstate.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/04_Foundation_Models/RealEstate.ipynb) |
-| 제조·품질 | 제조 수요 Zero-shot | 📝 설계 템플릿 | [📓 Notebook](notebooks/04_Foundation_Models/Manufacturing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/04_Foundation_Models/Manufacturing.ipynb) |
-| 공공정책 | 공공서비스 Zero-shot | 📝 설계 템플릿 | [📓 Notebook](notebooks/04_Foundation_Models/PublicPolicy.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/04_Foundation_Models/PublicPolicy.ipynb) |
-| 에너지·환경 | 전력수요 Zero-shot | 📝 설계 템플릿 | [📓 Notebook](notebooks/04_Foundation_Models/EnergyEnvironment.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/04_Foundation_Models/EnergyEnvironment.ipynb) |
-| 경영·마케팅 | 판매량 Zero-shot | 📝 설계 템플릿 | [📓 Notebook](notebooks/04_Foundation_Models/BusinessMarketing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/04_Foundation_Models/BusinessMarketing.ipynb) |
+| 금융·투자 | ETF Zero-shot 예측 | ✅ 실행 예제 | [📓 Notebook](notebooks/04_Foundation_Models/Finance.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/04_Foundation_Models/Finance.ipynb) |
+| 부동산 | 가격지수 Zero-shot | ✅ 실행 예제 | [📓 Notebook](notebooks/04_Foundation_Models/RealEstate.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/04_Foundation_Models/RealEstate.ipynb) |
+| 제조·품질 | 제조 수요 Zero-shot | ✅ 실행 예제 | [📓 Notebook](notebooks/04_Foundation_Models/Manufacturing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/04_Foundation_Models/Manufacturing.ipynb) |
+| 공공정책 | 공공서비스 Zero-shot | ✅ 실행 예제 | [📓 Notebook](notebooks/04_Foundation_Models/PublicPolicy.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/04_Foundation_Models/PublicPolicy.ipynb) |
+| 에너지·환경 | 전력수요 Zero-shot | ✅ 실행 예제 | [📓 Notebook](notebooks/04_Foundation_Models/EnergyEnvironment.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/04_Foundation_Models/EnergyEnvironment.ipynb) |
+| 경영·마케팅 | 판매량 Zero-shot | ✅ 실행 예제 | [📓 Notebook](notebooks/04_Foundation_Models/BusinessMarketing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/04_Foundation_Models/BusinessMarketing.ipynb) |
 
 [↑ 챕터 목록으로](#2-한눈에-보는-8개-챕터)
 
@@ -136,12 +136,12 @@
 
 | 분야 | 연구실습 과제 | 상태 | 실습 바로가기 |
 |---|---|---|---|
-| 금융·투자 | 금융 이벤트 ITS | 📝 설계 템플릿 | [📓 Notebook](notebooks/05_Causal_Inference/Finance.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/05_Causal_Inference/Finance.ipynb) |
-| 부동산 | 부동산 정책 DID | 📝 설계 템플릿 | [📓 Notebook](notebooks/05_Causal_Inference/RealEstate.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/05_Causal_Inference/RealEstate.ipynb) |
-| 제조·품질 | 공정 개선 ITS | 📝 설계 템플릿 | [📓 Notebook](notebooks/05_Causal_Inference/Manufacturing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/05_Causal_Inference/Manufacturing.ipynb) |
-| 공공정책 | 정책 개입 ITS·DID | 📝 설계 템플릿 | [📓 Notebook](notebooks/05_Causal_Inference/PublicPolicy.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/05_Causal_Inference/PublicPolicy.ipynb) |
-| 에너지·환경 | 환경규제 효과 분석 | 📝 설계 템플릿 | [📓 Notebook](notebooks/05_Causal_Inference/EnergyEnvironment.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/05_Causal_Inference/EnergyEnvironment.ipynb) |
-| 경영·마케팅 | 광고 캠페인 DID | 📝 설계 템플릿 | [📓 Notebook](notebooks/05_Causal_Inference/BusinessMarketing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/05_Causal_Inference/BusinessMarketing.ipynb) |
+| 금융·투자 | 금융 이벤트 ITS | ✅ 실행 예제 | [📓 Notebook](notebooks/05_Causal_Inference/Finance.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/05_Causal_Inference/Finance.ipynb) |
+| 부동산 | 부동산 정책 DID | ✅ 실행 예제 | [📓 Notebook](notebooks/05_Causal_Inference/RealEstate.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/05_Causal_Inference/RealEstate.ipynb) |
+| 제조·품질 | 공정 개선 ITS | ✅ 실행 예제 | [📓 Notebook](notebooks/05_Causal_Inference/Manufacturing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/05_Causal_Inference/Manufacturing.ipynb) |
+| 공공정책 | 정책 개입 ITS·DID | ✅ 실행 예제 | [📓 Notebook](notebooks/05_Causal_Inference/PublicPolicy.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/05_Causal_Inference/PublicPolicy.ipynb) |
+| 에너지·환경 | 환경규제 효과 분석 | ✅ 실행 예제 | [📓 Notebook](notebooks/05_Causal_Inference/EnergyEnvironment.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/05_Causal_Inference/EnergyEnvironment.ipynb) |
+| 경영·마케팅 | 광고 캠페인 DID | ✅ 실행 예제 | [📓 Notebook](notebooks/05_Causal_Inference/BusinessMarketing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/05_Causal_Inference/BusinessMarketing.ipynb) |
 
 [↑ 챕터 목록으로](#2-한눈에-보는-8개-챕터)
 
@@ -155,12 +155,12 @@
 
 | 분야 | 연구실습 과제 | 상태 | 실습 바로가기 |
 |---|---|---|---|
-| 금융·투자 | 산업 포트폴리오 FE | 📝 설계 템플릿 | [📓 Notebook](notebooks/06_Panel_Data_Analysis/Finance.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/06_Panel_Data_Analysis/Finance.ipynb) |
-| 부동산 | 지역별 주택가격 FE | 📝 설계 템플릿 | [📓 Notebook](notebooks/06_Panel_Data_Analysis/RealEstate.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/06_Panel_Data_Analysis/RealEstate.ipynb) |
-| 제조·품질 | 공장별 생산성 패널 | 📝 설계 템플릿 | [📓 Notebook](notebooks/06_Panel_Data_Analysis/Manufacturing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/06_Panel_Data_Analysis/Manufacturing.ipynb) |
-| 공공정책 | 지자체 패널 FE | 📝 설계 템플릿 | [📓 Notebook](notebooks/06_Panel_Data_Analysis/PublicPolicy.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/06_Panel_Data_Analysis/PublicPolicy.ipynb) |
-| 에너지·환경 | 지역 배출량 패널 | 📝 설계 템플릿 | [📓 Notebook](notebooks/06_Panel_Data_Analysis/EnergyEnvironment.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/06_Panel_Data_Analysis/EnergyEnvironment.ipynb) |
-| 경영·마케팅 | 점포별 매출 FE | 📝 설계 템플릿 | [📓 Notebook](notebooks/06_Panel_Data_Analysis/BusinessMarketing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/06_Panel_Data_Analysis/BusinessMarketing.ipynb) |
+| 금융·투자 | 산업 포트폴리오 FE | ✅ 실행 예제 | [📓 Notebook](notebooks/06_Panel_Data_Analysis/Finance.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/06_Panel_Data_Analysis/Finance.ipynb) |
+| 부동산 | 지역별 주택가격 FE | ✅ 실행 예제 | [📓 Notebook](notebooks/06_Panel_Data_Analysis/RealEstate.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/06_Panel_Data_Analysis/RealEstate.ipynb) |
+| 제조·품질 | 공장별 생산성 패널 | ✅ 실행 예제 | [📓 Notebook](notebooks/06_Panel_Data_Analysis/Manufacturing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/06_Panel_Data_Analysis/Manufacturing.ipynb) |
+| 공공정책 | 지자체 패널 FE | ✅ 실행 예제 | [📓 Notebook](notebooks/06_Panel_Data_Analysis/PublicPolicy.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/06_Panel_Data_Analysis/PublicPolicy.ipynb) |
+| 에너지·환경 | 지역 배출량 패널 | ✅ 실행 예제 | [📓 Notebook](notebooks/06_Panel_Data_Analysis/EnergyEnvironment.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/06_Panel_Data_Analysis/EnergyEnvironment.ipynb) |
+| 경영·마케팅 | 점포별 매출 FE | ✅ 실행 예제 | [📓 Notebook](notebooks/06_Panel_Data_Analysis/BusinessMarketing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/06_Panel_Data_Analysis/BusinessMarketing.ipynb) |
 
 [↑ 챕터 목록으로](#2-한눈에-보는-8개-챕터)
 
@@ -174,12 +174,12 @@
 
 | 분야 | 연구실습 과제 | 상태 | 실습 바로가기 |
 |---|---|---|---|
-| 금융·투자 | 금융 누수·Walk-forward | 📝 설계 템플릿 | [📓 Notebook](notebooks/07_Validation_Robustness/Finance.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/07_Validation_Robustness/Finance.ipynb) |
-| 부동산 | 지역·기간 강건성 | 📝 설계 템플릿 | [📓 Notebook](notebooks/07_Validation_Robustness/RealEstate.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/07_Validation_Robustness/RealEstate.ipynb) |
-| 제조·품질 | 센서 누수·경보 정확도 | 📝 설계 템플릿 | [📓 Notebook](notebooks/07_Validation_Robustness/Manufacturing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/07_Validation_Robustness/Manufacturing.ipynb) |
-| 공공정책 | 정책 Placebo | 📝 설계 템플릿 | [📓 Notebook](notebooks/07_Validation_Robustness/PublicPolicy.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/07_Validation_Robustness/PublicPolicy.ipynb) |
-| 에너지·환경 | 기상 체제변화 강건성 | 📝 설계 템플릿 | [📓 Notebook](notebooks/07_Validation_Robustness/EnergyEnvironment.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/07_Validation_Robustness/EnergyEnvironment.ipynb) |
-| 경영·마케팅 | 프로모션 누수 | 📝 설계 템플릿 | [📓 Notebook](notebooks/07_Validation_Robustness/BusinessMarketing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/07_Validation_Robustness/BusinessMarketing.ipynb) |
+| 금융·투자 | 금융 누수·Walk-forward | ✅ 실행 예제 | [📓 Notebook](notebooks/07_Validation_Robustness/Finance.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/07_Validation_Robustness/Finance.ipynb) |
+| 부동산 | 지역·기간 강건성 | ✅ 실행 예제 | [📓 Notebook](notebooks/07_Validation_Robustness/RealEstate.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/07_Validation_Robustness/RealEstate.ipynb) |
+| 제조·품질 | 센서 누수·경보 정확도 | ✅ 실행 예제 | [📓 Notebook](notebooks/07_Validation_Robustness/Manufacturing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/07_Validation_Robustness/Manufacturing.ipynb) |
+| 공공정책 | 정책 Placebo | ✅ 실행 예제 | [📓 Notebook](notebooks/07_Validation_Robustness/PublicPolicy.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/07_Validation_Robustness/PublicPolicy.ipynb) |
+| 에너지·환경 | 기상 체제변화 강건성 | ✅ 실행 예제 | [📓 Notebook](notebooks/07_Validation_Robustness/EnergyEnvironment.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/07_Validation_Robustness/EnergyEnvironment.ipynb) |
+| 경영·마케팅 | 프로모션 누수 | ✅ 실행 예제 | [📓 Notebook](notebooks/07_Validation_Robustness/BusinessMarketing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/07_Validation_Robustness/BusinessMarketing.ipynb) |
 
 [↑ 챕터 목록으로](#2-한눈에-보는-8개-챕터)
 
@@ -193,12 +193,12 @@
 
 | 분야 | 연구실습 과제 | 상태 | 실습 바로가기 |
 |---|---|---|---|
-| 금융·투자 | 금융 연구설계 | 📝 설계 템플릿 | [📓 Notebook](notebooks/08_Research_Integration/Finance.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/08_Research_Integration/Finance.ipynb) |
-| 부동산 | 부동산 연구설계 | 📝 설계 템플릿 | [📓 Notebook](notebooks/08_Research_Integration/RealEstate.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/08_Research_Integration/RealEstate.ipynb) |
-| 제조·품질 | 제조 연구설계 | 📝 설계 템플릿 | [📓 Notebook](notebooks/08_Research_Integration/Manufacturing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/08_Research_Integration/Manufacturing.ipynb) |
-| 공공정책 | 정책 연구설계 | 📝 설계 템플릿 | [📓 Notebook](notebooks/08_Research_Integration/PublicPolicy.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/08_Research_Integration/PublicPolicy.ipynb) |
-| 에너지·환경 | 에너지 연구설계 | 📝 설계 템플릿 | [📓 Notebook](notebooks/08_Research_Integration/EnergyEnvironment.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/08_Research_Integration/EnergyEnvironment.ipynb) |
-| 경영·마케팅 | 경영 연구설계 | 📝 설계 템플릿 | [📓 Notebook](notebooks/08_Research_Integration/BusinessMarketing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/08_Research_Integration/BusinessMarketing.ipynb) |
+| 금융·투자 | 금융 연구설계 | ✅ 실행 예제 | [📓 Notebook](notebooks/08_Research_Integration/Finance.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/08_Research_Integration/Finance.ipynb) |
+| 부동산 | 부동산 연구설계 | ✅ 실행 예제 | [📓 Notebook](notebooks/08_Research_Integration/RealEstate.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/08_Research_Integration/RealEstate.ipynb) |
+| 제조·품질 | 제조 연구설계 | ✅ 실행 예제 | [📓 Notebook](notebooks/08_Research_Integration/Manufacturing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/08_Research_Integration/Manufacturing.ipynb) |
+| 공공정책 | 정책 연구설계 | ✅ 실행 예제 | [📓 Notebook](notebooks/08_Research_Integration/PublicPolicy.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/08_Research_Integration/PublicPolicy.ipynb) |
+| 에너지·환경 | 에너지 연구설계 | ✅ 실행 예제 | [📓 Notebook](notebooks/08_Research_Integration/EnergyEnvironment.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/08_Research_Integration/EnergyEnvironment.ipynb) |
+| 경영·마케팅 | 경영 연구설계 | ✅ 실행 예제 | [📓 Notebook](notebooks/08_Research_Integration/BusinessMarketing.ipynb) · [▶ Colab](https://colab.research.google.com/github/nhjung-phd/TimeSeriesResearchMethods/blob/main/notebooks/08_Research_Integration/BusinessMarketing.ipynb) |
 
 [↑ 챕터 목록으로](#2-한눈에-보는-8개-챕터)
 

@@ -97,3 +97,18 @@
 1. 모든 `data_sources` 노트북은 온라인 로더를 `try/except`와 timeout으로 감싸고, 실패하면 합성자료로 대체하며 `DATA_KIND`를 출력합니다.
 2. 합성자료로 얻은 추정치는 **방법 시연**이며 실제 현상에 대한 증거가 아닙니다.
 3. 수업 전 점검: 각 노트북을 Colab에서 실행해 `DATA_KIND == 'REAL'`인지 확인하고, 이 카탈로그의 검증 상태를 갱신하세요.
+
+## 9. 학생 예제(Example 01~07)에서 편입한 소스
+
+학생 제출 노트북에 저장된 실행 출력으로 "그 시점에는 로드됨"을 확인했다(실행 날짜 미상, 현재 동작은 Colab 재실행 필요). 편입 코드는 `data_sources/` 노트북의 "추가" 셀과 `tools/data_source_extras.py`에 있다.
+
+| 소스 | 편입 위치 | 등급 | 비고 |
+|---|---|---|---|
+| FRED FEDFUNDS·UNRATE·CPIAUCSL (`fredgraph.csv`) | 01 Finance 추가 A | B | 원 예제는 `pandas_datareader`. 물가상승률은 월 정렬 후 계산하도록 수정 |
+| 금 일별 가격 (`data/finance/gold_historical_data.csv`, 저장소 포함) | 01 Finance 추가 B | C | 출처·라이선스 미표기(GC=F 계열 추정, 확인 필요). 파일 → yfinance → 합성 순 |
+| NOAA CO₂ csv/txt 다중 URL | 05 Energy 추가 C | B | 평균열 결측 −99.99. 원 예제 04번의 결측 치환 코드는 평균열에 해당 안 됨(확인 필요) |
+| Melbourne 일 최저기온 1981–1990 (jbrownlee/Datasets) | 05 추가 C, 챕터 Energy 2순위 대체 | B | 개인 저장소: 영구성 미보장. 서울 자료가 아님 |
+| NOAA Tides & Currents, Boston 8443970 hourly_height | 05 Energy 추가 C | B | 연 단위 요청. 주 조석 주기 약 12.42시간 |
+| Box–Jenkins 국제선 항공 승객 1949–1960 | 06 Business 추가 D (내장) | A | 네트워크 불필요, 144행 |
+
+원칙: 모든 로더는 `온라인 → 값 범위 검증 → 합성 대체`이며 `KIND_*`/`DATA_KIND`로 실제·합성을 표시한다. API 키는 저장하지 않는다.
